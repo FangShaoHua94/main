@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import seedu.address.model.Inventory;
 import seedu.address.model.good.Good;
 
 /**
@@ -18,9 +19,20 @@ public class TypicalGoods {
     public static final Good APPLE = new GoodBuilder().withGoodName("Fuji apple").build();
     public static final Good BANANA = new GoodBuilder().withGoodName("Cavendish banana").build();
 
-    // Manually added - Person's details found in {@code CommandTestUtil}
+    // Manually added - Good's details found in {@code CommandTestUtil}
     public static final Good AVOCADO = new GoodBuilder().withGoodName(VALID_GOOD_NAME_AVOCADO).build();
     public static final Good BLUEBERRY = new GoodBuilder().withGoodName(VALID_GOOD_NAME_BLUEBERRY).build();
+
+    /**
+     * Returns an {@code Inventory} with all the typical goods.
+     */
+    public static Inventory getTypicalInventory() {
+        Inventory inventory = new Inventory();
+        for (Good person : getTypicalGoods()) {
+            inventory.addGood(person);
+        }
+        return inventory;
+    }
 
     public static List<Good> getTypicalGoods() {
         return new ArrayList<>(Arrays.asList(APPLE, BANANA));
