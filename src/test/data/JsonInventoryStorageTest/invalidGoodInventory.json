@@ -1,0 +1,5 @@
+{
+  "goods": [ {
+    "goodName": "Good with invalid good name field: Fuji @pple"
+  } ]
+}

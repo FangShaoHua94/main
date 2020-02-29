@@ -22,19 +22,19 @@ public class GoodNameTest {
     @Test
     public void isValidName() {
         // null name
-        assertThrows(NullPointerException.class, () -> GoodName.isValidName(null));
+        assertThrows(NullPointerException.class, () -> GoodName.isValidGoodName(null));
 
         // invalid name
-        assertFalse(GoodName.isValidName("")); // empty string
-        assertFalse(GoodName.isValidName(" ")); // spaces only
-        assertFalse(GoodName.isValidName("^")); // only non-alphanumeric characters
-        assertFalse(GoodName.isValidName("apple*")); // contains non-alphanumeric characters
+        assertFalse(GoodName.isValidGoodName("")); // empty string
+        assertFalse(GoodName.isValidGoodName(" ")); // spaces only
+        assertFalse(GoodName.isValidGoodName("^")); // only non-alphanumeric characters
+        assertFalse(GoodName.isValidGoodName("apple*")); // contains non-alphanumeric characters
 
         // valid name
-        assertTrue(GoodName.isValidName("fuji apple")); // alphabets only
-        assertTrue(GoodName.isValidName("12345")); // numbers only
-        assertTrue(GoodName.isValidName("2nd Gen fuji apple")); // alphanumeric characters
-        assertTrue(GoodName.isValidName("Fuji apple")); // with capital letters
-        assertTrue(GoodName.isValidName("fuji apple with very very very long name")); // long names
+        assertTrue(GoodName.isValidGoodName("fuji apple")); // alphabets only
+        assertTrue(GoodName.isValidGoodName("12345")); // numbers only
+        assertTrue(GoodName.isValidGoodName("2nd Gen fuji apple")); // alphanumeric characters
+        assertTrue(GoodName.isValidGoodName("Fuji apple")); // with capital letters
+        assertTrue(GoodName.isValidGoodName("fuji apple with very very very long name")); // long names
     }
 }

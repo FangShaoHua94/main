@@ -1,0 +1,7 @@
+{
+  "goods": [ {
+    "goodName": "Valid Good"
+  }, {
+    "goodName": "Good With Invalid GoodName @ Field"
+  } ]
+}

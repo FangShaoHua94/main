@@ -15,13 +15,22 @@ import seedu.address.model.good.Good;
  */
 public class TypicalGoods {
 
-    // Manually added
+
     public static final Good APPLE = new GoodBuilder().withGoodName("Fuji apple").build();
     public static final Good BANANA = new GoodBuilder().withGoodName("Cavendish banana").build();
+    public static final Good CITRUS = new GoodBuilder().withGoodName("Brazil citrus").build();
+    public static final Good DURIAN = new GoodBuilder().withGoodName("Malaysia durian").build();
+    public static final Good ENTAWAK = new GoodBuilder().withGoodName("Indonesia entawak").build();
+
+    // Manually added
+    public static final Good FIG = new GoodBuilder().withGoodName("India fig").build();
+    public static final Good GRAPE = new GoodBuilder().withGoodName("Spain grape").build();
+
 
     // Manually added - Good's details found in {@code CommandTestUtil}
     public static final Good AVOCADO = new GoodBuilder().withGoodName(VALID_GOOD_NAME_AVOCADO).build();
     public static final Good BLUEBERRY = new GoodBuilder().withGoodName(VALID_GOOD_NAME_BLUEBERRY).build();
+
 
     /**
      * Returns an {@code Inventory} with all the typical goods.
@@ -35,7 +44,7 @@ public class TypicalGoods {
     }
 
     public static List<Good> getTypicalGoods() {
-        return new ArrayList<>(Arrays.asList(APPLE, BANANA));
+        return new ArrayList<>(Arrays.asList(APPLE, BANANA, CITRUS, DURIAN, ENTAWAK));
     }
 
 }
