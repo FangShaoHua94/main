@@ -119,24 +119,121 @@ Format: `clear`
 
 === Buying goods : `buy`
 
+Orders the goods from suppliers. +
+Format: `buy n/SUPPLIER_NAME g/GOOD_NAME q/QUANTITY x/EXPIRY_DATE d/TRANSACTION_DATE`
+
+Example:
+
+* `buy n/Dave g/apple q/4 x/2020-08-01 d/2020-02-18` +
+Order 4 apples that expire on 2020-08-01, from Dave(Supplier) on 2020-02-18
+
 === Selling goods : `sell`
+
+Sells the goods from inventory. +
+Format `sell g/GOOD_NAME q/QUANTITY d/TRANSACTION_DATE`
+
+Example:
+
+* `sell g/apple q/4 d/2030-01-05` +
+Sell 4 apples, decrease the number of apples in inventory by 4, on 2030-01-05.
 
 === Listing all items in inventory : `list-i`
 
+Displays the inventory for all the goods available. +
+Displays the quantity of all the goods in inventory. +
+Format: `list-i`
+
+Example:
+
+* `list-i` +
+* Sample output: +
+`Here is all the goods in inventory:` +
+`1. Apple - 5` +
+`2. Banana - 10` +
+`3. Cup noodle - 100`
+
 === Listing all expiring soon items : `list-e`
 
+Displays the batches of a particular good expiring for the input good,
+or for all goods in the inventory if no good is provided.
+Format: `list-e [g/GOOD_NAME]`
+
+Example:
+
+* `list-e g/apple`
+* Sample output: +
+`The following batches of APPLES are expiring soon:` +
+** `2020-02-18: 5`
+** `2020-02-20: 10`
+
+
 === Listing all suppliers : `list`
+
+Displays all suppliers.
+Format: `list-s`
+
+* Sample output: +
+`Here are all the suppliers:` +
+** `1. Bob`
+*** `Address: North Ave BLK 92 #11-02`
+*** `Email: BobTheFishermen@gmail.com`
+*** `Phone: 93850123`
+**** `Salmon $17.35`
+**** `Tuna $14.25`
+** `2. John`
+*** `Address: South Ave BLK 192 #19-22`
+*** `Email: JohnTheTasty@gmail.com`
+*** `Phone: 95150133`
+**** `Apple $1.35`
+**** `Banana $1.25`
 
 Shows a list of all persons in the address book. +
 Format: `list`
 
 === Listing all transaction records : `list-t`
 
+Displays all the transaction record, in reverse chronological order.
+Format: `list-t`
+
+* Sample output: +
+`Here is your transaction history:`
+** `2020-02-18 sell 2 apples`
+** `2020-02-17 buy 2 salmons from Bob`
+** `2020-02-15 buy 5 carrots from John`
+
 === Listing all suppliers who sell a certain good : `source`
+
+Displays all the suppliers who are able to sell you a specified product,
+sorted by increasing price. +
+Useful when there are item(s) low in inventory and you want to see which supplier you can buy from. +
+
+Format: `source g/GOOD_NAME`
+
+* Sample output: +
+`Here is all the suppliers selling apple:`
+** `1. Bob`
+*** `Address: North Ave BLK 92 #11-02`
+*** `Email: BobTheQoQ@gmail.com`
+*** `Phone: 93850123`
+**** `Fuji Apple $10.00`
+**** `Fuji Melon $100.00`
+** `2. John`
+*** `Address: South Ave BLK 192 #19-22`
+*** `Email: JohnTheTasty@gmail.com`
+*** `Phone: 95150133`
+**** `Apple $1.35`
+**** `Banana $1.25`
 
 === Clear all transaction history : `clear-t`
 
+Clears all the transaction records. +
+Format: `clear-t`
+
 === Find a good : `find`
+
+Displays all items that have fallen below their respective minimum thresholds in the inventory.
+
+Format: `list-l`
 
 === Editing a person : `edit`
 
@@ -191,14 +288,23 @@ _{explain how the user can enable/disable data encryption}_
 
 == Command Summary
 
-* *Add* `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]...` +
-e.g. `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`
-* *Clear* : `clear`
-* *Delete* : `delete INDEX` +
-e.g. `delete 3`
-* *Edit* : `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]...` +
-e.g. `edit 2 n/James Lee e/jameslee@example.com`
-* *Find* : `find KEYWORD [MORE_KEYWORDS]` +
-e.g. `find James Jake`
-* *List* : `list`
-* *Help* : `help`
+* *Buy* `buy n/SUPPLIER_NAME g/GOOD_NAME q/QUANTITY x/EXPIRY_DATE d/TRANSACTION_DATE` +
+e.g. `buy n/Dave g/apple q/4 x/2020-08-01 d/2020-02-18`
+
+* *Sell* `sell g/GOOD_NAME q/QUANTITY d/TRANSACTION_DATE` +
+e.g. `sell g/apple q/4 d/2030-01-05`
+
+* *Listing all items in inventory* `list-i`
+
+* *List all expiring soon items in inventory* `list-e [g/GOOD_NAME]`
+
+* *List all suppliers* `list-s`
+
+* *List transaction history* `list-t`
+
+* *List all suppliers who sell a certain good* `source g/GOOD_NAME` +
+e.g. `source g/apple`
+
+* *Clear all transaction history* `clear-t`
+
+* *List all goods low in stock* `list-l`
